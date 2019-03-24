@@ -1,0 +1,2 @@
+i2cdetect -y 1
+https://www.recantha.co.uk/blog/?p=4849

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<gpio_config>
+    <buttons>
+        <up>14</up>
+        <down>15</down>
+        <left>17</left>
+        <right>18</right>
+        <select>4</select>
+    </buttons>
+</gpio_config>
