@@ -8,10 +8,10 @@
         <select>4</select>
     </buttons>
     <leds>
-        <led1>27</led1>
-        <led2>22</led2>
-        <led3>23</led3>
-        <led4>24</led4>
-        <led5>10</led5>
+        <led0>27</led0>
+        <led1>22</led1>
+        <led2>23</led2>
+        <led3>24</led3>
+        <led4>10</led4>
     </leds>
 </gpio_config>

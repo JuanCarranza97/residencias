@@ -5,7 +5,7 @@ from prettytable import PrettyTable
 from time import sleep
 
 logging.basicConfig(level=logging.ERROR,format = '%(levelname)s - %(asctime)s - %(message)s')
-file_name = "configGPIO.xml"
+file_name = "/home/pi/Documents/residencias/configGPIO.xml"
 
 def searchAndAssign(xmlSection,labelName):
     """
@@ -48,22 +48,16 @@ def monitorButtons(buttons,iterations=1):
             buttonsTable.add_row([buttonName,button.is_pressed])
         print(buttonsTable)
         sleep(.1)
+
 def ledsDemo(leds):
-    for led in leds.values():
+    for led in leds:
         led.off()
     
-    leds["LED1"].on() 
-    sleep(0.5)
-    leds["LED2"].on() 
-    sleep(.5)
-    leds["LED3"].on() 
-    sleep(0.5)
-    leds["LED4"].on() 
-    sleep(0.5)
-    leds["LED5"].on() 
-    sleep(0.5)
+    for led in leds:
+        led.on() 
+        sleep(0.5)
 
-    for led in leds.values():
+    for led in leds:
         led.off()
 
 try:
@@ -88,8 +82,8 @@ buttons = {"UP":     Button(int(searchAndAssign(buttonsXML,"up"))),
 #              Reading GPIO LEDs config from xml file                   #
 #########################################################################
 ledsXML = searchAndAssign(configXML,"leds")
-leds = {"LED1": LED(int(searchAndAssign(ledsXML,"led1"))),
-           "LED2": LED(int(searchAndAssign(ledsXML,"led2"))),
-           "LED3": LED(int(searchAndAssign(ledsXML,"led3"))),
-           "LED4": LED(int(searchAndAssign(ledsXML,"led4"))),
-           "LED5": LED(int(searchAndAssign(ledsXML,"led5")))}
+leds = [LED(int(searchAndAssign(ledsXML,"led0"))),
+        LED(int(searchAndAssign(ledsXML,"led1"))),
+        LED(int(searchAndAssign(ledsXML,"led2"))),
+        LED(int(searchAndAssign(ledsXML,"led3"))),
+        LED(int(searchAndAssign(ledsXML,"led4")))]

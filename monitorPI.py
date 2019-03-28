@@ -1,4 +1,4 @@
-from borraScripts import lcddriver
+from scripts import lcddriver
 import subprocess
 from time import sleep 
 

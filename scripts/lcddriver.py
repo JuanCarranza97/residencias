@@ -1,4 +1,4 @@
-from  borraScripts import i2c_lib
+from scripts import i2c_lib
 from time import *
 
 # LCD Address
