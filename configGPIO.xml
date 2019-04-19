@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
 <gpio_config>
     <buttons>
-        <up>14</up>
-        <down>15</down>
-        <left>17</left>
-        <right>18</right>
-        <select>4</select>
+        <button0>26</button0>
+        <button1>19</button1>
+        <button2>13</button2>
     </buttons>
     <leds>
-        <led0>27</led0>
-        <led1>22</led1>
-        <led2>23</led2>
-        <led3>24</led3>
-        <led4>10</led4>
+        <led0>4</led0>
+        <led1>17</led1>
+        <led2>27</led2>
+        <led3>22</led3>
     </leds>
 </gpio_config>

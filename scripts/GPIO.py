@@ -44,8 +44,8 @@ def monitorButtons(buttons,iterations=1):
  
         buttonsTable = PrettyTable()
         buttonsTable.field_names = ["Button Name","State"]
-        for buttonName,button in buttons.items():
-            buttonsTable.add_row([buttonName,button.is_pressed])
+        for i in range(len(buttons)):
+            buttonsTable.add_row(["Button {}:".format(i),buttons[i].is_pressed])
         print(buttonsTable)
         sleep(.1)
 
@@ -55,10 +55,11 @@ def ledsDemo(leds):
     
     for led in leds:
         led.on() 
-        sleep(0.5)
+        sleep(0.1)
 
     for led in leds:
         led.off()
+        sleep(0.1)
 
 try:
     tree = et.parse(file_name)
@@ -72,11 +73,9 @@ configXML  = tree.getroot()
 #            Reading GPIO Buttons config from xml file                  #
 #########################################################################
 buttonsXML = searchAndAssign(configXML,"buttons")
-buttons = {"UP":     Button(int(searchAndAssign(buttonsXML,"up"))),
-           "DOWN":   Button(int(searchAndAssign(buttonsXML,"down"))),
-           "LEFT":   Button(int(searchAndAssign(buttonsXML,"left"))),
-           "RIGHT":  Button(int(searchAndAssign(buttonsXML,"right"))),
-           "SELECT": Button(int(searchAndAssign(buttonsXML,"select")))}
+buttons = [Button(int(searchAndAssign(buttonsXML,"button0"))),
+           Button(int(searchAndAssign(buttonsXML,"button1"))),
+           Button(int(searchAndAssign(buttonsXML,"button2")))]
 
 #########################################################################
 #              Reading GPIO LEDs config from xml file                   #
@@ -85,5 +84,4 @@ ledsXML = searchAndAssign(configXML,"leds")
 leds = [LED(int(searchAndAssign(ledsXML,"led0"))),
         LED(int(searchAndAssign(ledsXML,"led1"))),
         LED(int(searchAndAssign(ledsXML,"led2"))),
-        LED(int(searchAndAssign(ledsXML,"led3"))),
-        LED(int(searchAndAssign(ledsXML,"led4")))]
+        LED(int(searchAndAssign(ledsXML,"led3")))]

@@ -1,4 +1,5 @@
 from scripts import lcddriver
+
 import subprocess
 from time import sleep 
 
@@ -26,8 +27,7 @@ while not ipFound:
         lcd.lcd_display_string("IP found !!",1) 
         lcd.lcd_display_string("IP {}".format(IP),3)
         ipFound = True
-    sleep(.5)
-
+    sleep(0.5)
 if not ipFound:
     lcd.lcd_clear()
     lcd.lcd_display_string("IP was not Found :c",1)
